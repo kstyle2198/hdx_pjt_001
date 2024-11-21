@@ -131,7 +131,7 @@ if __name__ == "__main__":
             st.chat_message(msg["role"], avatar="👨‍✈️").write(msg["content"])
         else:
             st.chat_message(msg["role"], avatar="🤖").write(msg["content"])
-    with st.expander("응답 근거 문서", expanded=True):
+    with st.expander("응답 근거 문서", expanded=False):
         with st.container(border=True):
             for doc in st.session_state.doc_list:
                 with st.container(border=True):
