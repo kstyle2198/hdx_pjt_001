@@ -131,11 +131,12 @@ if __name__ == "__main__":
             st.chat_message(msg["role"], avatar="👨‍✈️").write(msg["content"])
         else:
             st.chat_message(msg["role"], avatar="🤖").write(msg["content"])
-    with st.container(border=True):
-        for doc in st.session_state.doc_list:
-            with st.container(border=True):
-                st.markdown(doc.page_content)
-                st.markdown(f":green[{doc.metadata}]")
+    with st.expander("응답 근거 문서", expanded=True):
+        with st.container(border=True):
+            for doc in st.session_state.doc_list:
+                with st.container(border=True):
+                    st.markdown(doc.page_content)
+                    st.markdown(f":green[{doc.metadata}]")
 
     if st.session_state.time_delta: 
         st.warning(f"⏱️ TimeDelta(Sec) : {st.session_state.time_delta}")
